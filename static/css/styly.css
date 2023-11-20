@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 110px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+label {
+    font-size: 1.2em;
+    display: block;
+    margin: 20px 0 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: block;
+    margin-top: 10px; /* Add margin to separate from the file input */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#output {
+    margin-top: 20px;
+    white-space: pre-wrap;
+    color: #333;
+    overflow: auto;
+}
