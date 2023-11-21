@@ -20,22 +20,6 @@
         </form>
 
         <div id="output"></div>
-
-        {% if display %}
-            <div class="container mt-4">
-                <div>
-                    {{ top_rows_html|safe }}
-                </div>
-
-                <div class="ellipsis mt-4">
-                    <p>...</p>
-                </div>
-                
-                <div>
-                    {{ bottom_rows_html|safe }}
-                </div>
-            </div>
-        {% endif %}
     </div>
 
     <script>

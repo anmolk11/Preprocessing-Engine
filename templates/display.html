@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        h4, h3 {
+            display: inline-block;
+            margin-right: 5px; /* Adjust margin as needed */
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <span>
+            <h4>Top five rows of file</h4> 
+            <h3 style="color: green; text-decoration: underline">{{table_name}}</h3>
+        </span>
+        <div>
+            {{ table|safe }}
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <span>
+            <h4>Discription of Data</h4> 
+        </span>
+        <div>
+            {{ data|safe }}
+        </div>
+    </div>
+</body>
+</html>
