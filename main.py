@@ -60,5 +60,17 @@ def process(file):
 def cleaning():
     return render_template('clean.html')
 
+@app.route('/fill_missing')
+def fill_missing():
+    return render_template('fill_missing.html')
+
+@app.route('/encode_features')
+def encode_features():
+    return render_template('encode_features.html')
+
+@app.route('/scale_normalize')
+def scale_normalize():
+    return render_template('scale_normalize.html')
+
 if __name__ == '__main__':
     app.run(debug = True)
