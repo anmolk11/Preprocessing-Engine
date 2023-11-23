@@ -6,6 +6,7 @@
     <title>CSV File Reader</title>
     <link rel="stylesheet" href="../static/css/style_index.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="../static/js/index.js"></script>
 </head>
 <body>
     <div id="container">
@@ -21,13 +22,5 @@
 
         <div id="output"></div>
     </div>
-
-    <script>
-        function displayFileName(input) {
-            const fileName = input.files[0].name;
-            const outputDiv = document.getElementById('output');
-            outputDiv.textContent = `Selected file: ${fileName}`;
-        }
-    </script>
 </body>
 </html>
