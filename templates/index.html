@@ -15,7 +15,7 @@
         <form action="/" method="post" enctype="multipart/form-data">
             <label for="csvFileInput">Choose a CSV file:</label>
             <label class="custom-file-upload">
-                <input type="file" id="csvFileInput" name="csvFile" accept=".csv" onchange="displayFileName(this)"> Browse
+                <input type="file" id="csvFileInput" name="csvFile" accept=".csv" onchange="displayFileName(this)" required> Browse
             </label>
             <button type="submit">Submit</button>
         </form>

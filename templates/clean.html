@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,44 +17,72 @@
       from {
         opacity: 0;
       }
+
       to {
         opacity: 1;
       }
     }
+
+    .option {
+     
+    }
+
+    .option .inner-div {
+      margin-bottom: 16px;
+      /* Adjust the margin as needed */
+    }
   </style>
 </head>
+
 <body class="container mt-5 fade-in"> <!-- Add the fade-in class -->
-
-  <h1 class="mb-4">Data Processing Options</h1>
-
-  <div class="card-deck">
-    <!-- Option 1: Fill Missing Values -->
-    <div class="card">
+  <div class="option">
+    <div class="card text-center inner-div">
+      <div class="card-header">
+        Fill Missing Values
+      </div>
       <div class="card-body">
-        <h5 class="card-title">Fill Missing Values</h5>
-        <p class="card-text">Option to fill missing values in the data.</p>
-        <a href="/fill_missing" class="btn btn-primary">Select</a>
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
       </div>
     </div>
 
-    <!-- Option 2: Encode Features -->
-    <div class="card">
+
+
+    <div class="card text-center inner-div">
+      <div class="card-header">
+        Encode the features
+      </div>
       <div class="card-body">
-        <h5 class="card-title">Encode Features</h5>
-        <p class="card-text">Option to encode categorical features in the data.</p>
-        <a href="/encode_features" class="btn btn-primary">Select</a>
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
       </div>
     </div>
 
-    <!-- Option 3: Scale or Normalize Data -->
-    <div class="card">
+
+
+    <div class="card text-center inner-div">
+      <div class="card-header">
+        Scale the features
+      </div>
       <div class="card-body">
-        <h5 class="card-title">Scale or Normalize Data</h5>
-        <p class="card-text">Option to scale or normalize numerical features in the data.</p>
-        <a href="/scale_normalize" class="btn btn-primary">Select</a>
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
       </div>
     </div>
   </div>
+
 
   <!-- Bootstrap JS and Popper.js -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -61,4 +90,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
