@@ -1,16 +1,20 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,session
 import pandas as pd
-import numpy as np
+
 from engine import process
 
 app = Flask(__name__)
+app.secret_key = 'A7x2bL#8pK9!'
 
 @app.route('/',methods = ['POST','GET'])
 def index():
     if request.method == 'POST':
         file = request.files['csvFile']
-        vals = process(file)
+        session['file_name'] = file.filename
+        file.save(f'static\data\{file.filename}')
+        vals = process(session['file_name'])
         return render_template('display.html', table = vals['table'],table_name = vals['table_name'],data = vals['data'])
+            
     else:
         return render_template('index.html')
 

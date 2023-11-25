@@ -6,10 +6,9 @@ def highlighter(x):
         return ['background-color: #eb6a6a'] * 4
     else:
         return ['background-color: white'] * 4
-    
-def process(file):
-    file_name = file.filename
-    df = pd.read_csv(file)
+
+def process(file_name):
+    df = pd.read_csv(f'static\data\{file_name}')
     cols = df.columns
     cats = []
     for i in cols:
