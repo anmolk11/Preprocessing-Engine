@@ -5,10 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Processing Options</title>
-  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Custom CSS for animation */
     .fade-in {
       animation: fadeIn 1.0s ease-in-out;
     }
@@ -24,29 +22,30 @@
     }
 
     .option {
-      
+      background-color: burlywood;
     }
 
     .option .inner-div {
       margin-bottom: 16px;
-      /* Adjust the margin as needed */
     }
+
+    
   </style>
 </head>
+
 <body class="container mt-5 fade-in"> <!-- Add the fade-in class -->
-  {{data}}
   <div class="option">
     <div class="card text-center inner-div">
       <div class="card-header">
-        Fill Missing Values
+        Fill Missing Values or Drop Features 
       </div>
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
+        <h5 class="card-title">Features with Missing Values</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+        <a href="/fill_missing" class="btn btn-outline-success">Clean</a>
       </div>
       <div class="card-footer text-muted">
-        2 days ago
+        Step 1
       </div>
     </div>
 
@@ -59,10 +58,10 @@
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+        <a href="encode_features" class="btn btn-outline-success">Step 2</a>
       </div>
       <div class="card-footer text-muted">
-        2 days ago
+        Step 2
       </div>
     </div>
 
@@ -75,10 +74,10 @@
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-outline-success">Go somewhere</a>
+        <a href="scale_normalize" class="btn btn-outline-success">Step 3</a>
       </div>
       <div class="card-footer text-muted">
-        2 days ago
+        Step 3
       </div>
     </div>
   </div>

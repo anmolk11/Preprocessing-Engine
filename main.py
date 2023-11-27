@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request,session
 import pandas as pd
 
-from engine import process
+from engine import process,debug
 
 app = Flask(__name__)
 app.secret_key = 'A7x2bL#8pK9!'
@@ -13,6 +13,17 @@ def index():
         session['file_name'] = file.filename
         file.save(f'static\data\{file.filename}')
         vals = process(session['file_name'])
+        miss = {
+            'Feature' : [],
+            'Category' : [],
+            'Missing' : []
+        }
+        for f,c,v in zip(vals['Feature'],vals['Category'],vals['% of Missing Values']):
+            if v > 0:
+                miss['Feature'].append(f)
+                miss['Category'].append(c)
+                miss['Missing'].append(v)
+        session['miss_info'] = miss
         return render_template('display.html', table = vals['table'],table_name = vals['table_name'],data = vals['data'])
             
     else:
@@ -24,7 +35,33 @@ def cleaning():
 
 @app.route('/fill_missing')
 def fill_missing():
-    return render_template('fill_missing.html')
+    df = pd.DataFrame(session['miss_info'])
+    df.sort_values(by = 'Missing',ascending = False,inplace = True)
+    df_html = df.to_html(index = False)
+    prompt_data = []
+    for feat,cat in zip(session['miss_info']['Feature'],session['miss_info']['Category']):
+        if cat == 'Categorical' or cat == 'Binary':
+            prompt = {
+                'question' : feat,
+                'options' : ['Drop the Feature','Fill with Mode']
+            }
+        else:
+            prompt = {
+                'question' : feat,
+                'options' : ['Drop the feature','Fill with Mean','Fill with Median']
+            }
+        prompt_data.append(prompt) 
+    return render_template('fill_missing.html',data = df_html,prompt_data = prompt_data)
+
+@app.route('/process_fill_missing',methods=['POST'])
+def process_fill_missing():
+    selected_values = {}
+    for question in request.form:
+        selected_values[question] = request.form[question]
+
+    # Process the selected values as needed
+    return f'Selected values: {selected_values}'
+
 
 @app.route('/encode_features')
 def encode_features():
@@ -34,5 +71,9 @@ def encode_features():
 def scale_normalize():
     return render_template('scale_normalize.html')
 
+# ----------------------------- Testing area -----------------------------------------------
+
+
 if __name__ == '__main__':
     app.run(debug = True)
+    # os.remove(f"static\data\{session['file_name']}")

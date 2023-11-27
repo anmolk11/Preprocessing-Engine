@@ -1,13 +1,18 @@
 import pandas as pd
 import numpy as np
 
+def debug(*args):
+    print('\n================ Debug ================\n')
+    print(args)
+    print('\n================ Debug ================\n')
+
 def highlighter(x):
     if x['Num of Missing Values'] > 0:
         return ['background-color: #eb6a6a'] * 4
     else:
         return ['background-color: white'] * 4
 
-def process(file_name):
+def process(file_name = 'movies.csv'):
     df = pd.read_csv(f'static\data\{file_name}')
     cols = df.columns
     cats = []
@@ -45,5 +50,13 @@ def process(file_name):
     return {
             'table' : table_df,
             "table_name" : file_name,
-            'data' : data_df
+            'data' : data_df,
+            'Feature' : cols,
+            'Category' : cats,
+            'Num of Missing Values' : data_miss,
+            '% of Missing Values' : perc_miss
             }
+
+if __name__ == '__main__':
+    data = process()
+    print(data['cols_miss'])

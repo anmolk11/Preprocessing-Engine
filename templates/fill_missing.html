@@ -1,22 +1,66 @@
 <!-- templates/fill_missing.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fill Missing Values</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px;
+    }
+
+    th,
+    td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+  </style>
 </head>
+
 <body class="container mt-5">
 
   <h1>Fill Missing Values Page</h1>
   <p>This is the page for filling missing values.</p>
 
-  <!-- Bootstrap JS and Popper.js -->
+  {{data|safe}}
+
+  <div class="container mt-5">
+  <form id="myForm" action="/process_fill_missing" method="post">
+    {% for prompt in prompt_data %}
+        <div class="form-group">
+            <label for="{{ prompt.question }}">{{ prompt.question }}</label>
+            <select class="form-control" id="{{ prompt.question }}" name="{{ prompt.question }}">
+                {% for option in prompt.options %}
+                    <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% endfor %}
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
 </body>
+
 </html>
