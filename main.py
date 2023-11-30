@@ -1,7 +1,12 @@
 from flask import Flask,render_template,request,session
 import pandas as pd
+import atexit
+
 
 from engine import *
+from cleanup import cleanup_folder
+
+atexit.register(cleanup_folder)
 
 app = Flask(__name__)
 app.secret_key = 'A7x2bL#8pK9!'
