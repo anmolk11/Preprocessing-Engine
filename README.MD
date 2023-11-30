@@ -24,5 +24,3 @@ To deploy this project run
 ## 🚀 About Me
 I'm a full stack Data Scientist...
 
-
-![Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTx90SYODiBogP9mv8VyVFZF71v8P73uNyuw)
