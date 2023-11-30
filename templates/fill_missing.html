@@ -32,12 +32,11 @@
 
 <body class="container mt-5">
 
-  <h1>Fill Missing Values Page</h1>
-  <p>This is the page for filling missing values.</p>
-
+  <h3>Features with missing values</h3>
   {{data|safe}}
-
+  
   <div class="container mt-5">
+  <h3>Select the cleaning option for each feature</h3>
   <form id="myForm" action="/process_fill_missing" method="post">
     {% for prompt in prompt_data %}
         <div class="form-group">

@@ -60,8 +60,8 @@ def process_fill_missing():
         selected_values[question] = request.form[question]
 
     # Process the selected values as needed
-    fill_missing_vals(selected_values)
-    return f'Selected values: {selected_values}'
+    source = fill_missing_vals(selected_values,session['file_name'])
+    return render_template('download.html',file_name = source)
 
 
 @app.route('/encode_features')

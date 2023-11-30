@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from sklearn.impute import SimpleImputer
+
 def debug(*args):
     print('\n================ Debug ================\n')
     print(args)
@@ -58,8 +60,44 @@ def process(file_name = 'movies.csv'):
             }
 
 
-def fill_missing_vals(cols_info):
-    pass
+def fill_missing_vals(cols_info,file_name):
+    df = pd.read_csv(f'static\data\{file_name}')
+    with_mean = []
+    with_mode = []
+    with_median = []
+    to_drop = []
+    for k,v in cols_info.items():
+        if v == 'Fill with Mode':
+            with_mode.append(k)
+        elif v == 'Fill with Mean':
+            with_mean.append(k)
+        elif v == 'Fill with Medain':
+            with_median.append(k)
+        else:
+            to_drop.append(k)
+    
+    if len(with_mean) > 0:
+        imp_mean = SimpleImputer(strategy = 'mean')
+        df[with_mean] = imp_mean.fit_transform(df[with_mean])
+    
+    if len(with_median) > 0:
+        imp_median = SimpleImputer(strategy = 'median')
+        df[with_median] = imp_median.fit_transform(df[with_median])
+    
+    if len(with_mode) > 0:
+        imp_mode = SimpleImputer(strategy = 'most_frequent')
+        df[with_mode] = imp_mode.fit_transform(df[with_mode])
+    
+    if len(to_drop) > 0:
+        df.drop(to_drop,axis = 1,inplace = True)
+    
+    file_name = file_name.split('.')[0]
+    clean_file = f'static\data\{file_name}_fill_na.csv'
+    debug(clean_file)
+    df.to_csv(clean_file,index = False)
+    return clean_file
+
+    
 
 
 if __name__ == '__main__':
