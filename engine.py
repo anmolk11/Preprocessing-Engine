@@ -57,6 +57,11 @@ def process(file_name = 'movies.csv'):
             '% of Missing Values' : perc_miss
             }
 
+
+def fill_missing_vals(cols_info):
+    pass
+
+
 if __name__ == '__main__':
     data = process()
     print(data['cols_miss'])

@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request,session
 import pandas as pd
 
-from engine import process,debug
+from engine import *
 
 app = Flask(__name__)
 app.secret_key = 'A7x2bL#8pK9!'
@@ -60,6 +60,7 @@ def process_fill_missing():
         selected_values[question] = request.form[question]
 
     # Process the selected values as needed
+    fill_missing_vals(selected_values)
     return f'Selected values: {selected_values}'
 
 
